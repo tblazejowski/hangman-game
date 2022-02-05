@@ -51,15 +51,23 @@ export class AppComponent implements OnInit {
 
   onGuessWord(): void {
     if (this.game.word === this.guessWord.trim()) {
-      alert('You won and saved your life!');
-      this.game.guess = this.game.word;
-      this.gameInProgress = false;
+      this.gameIsWon();
     } else {
-      this.guessCounter = 6;
-      this.gameInProgress = false;
-      this.game.guess = this.game.word;
-      alert('You\'ve just died!');
+      this.gameIsLost();
     }
+  }
+
+  private gameIsLost(): void {
+    this.guessCounter = 6;
+    this.gameInProgress = false;
+    this.game.guess = this.game.word;
+    alert('You\'ve just died!');
+  }
+
+  private gameIsWon(): void {
+    alert('You won and saved your life!');
+    this.game.guess = this.game.word;
+    this.gameInProgress = false;
   }
 
   getImage(): string {
