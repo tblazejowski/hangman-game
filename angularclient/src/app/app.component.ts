@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   guessWord: any;
   guessCounter = 0;
   gameInProgress = false;
+  private readonly maxGuessesAllowed = 6;
 
   constructor(private gameService: GameService) {
   }
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit {
       this.guessCounter++;
     }
     this.game.guessChar = '';
-    if (this.guessCounter >= 6) {
+    if (this.guessCounter >= this.maxGuessesAllowed) {
       this.gameInProgress = false;
       this.game.guess = this.game.word;
       alert('You\'ve just died!');
@@ -61,7 +62,7 @@ export class AppComponent implements OnInit {
   }
 
   private gameIsLost(): void {
-    this.guessCounter = 6;
+    this.guessCounter = this.maxGuessesAllowed;
     this.gameInProgress = false;
     this.game.guess = this.game.word;
     alert('You\'ve just died!');
