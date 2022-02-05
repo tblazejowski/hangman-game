@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
       this.gameInProgress = false;
       this.game.guess = this.game.word;
       alert('You\'ve just died!');
+      return;
     }
     if (this.game.guess === this.game.word) {
       this.gameIsWon();
