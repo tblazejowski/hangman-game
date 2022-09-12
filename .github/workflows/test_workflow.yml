@@ -15,4 +15,4 @@ jobs:
         echo $TEST
         echo "Hello ${{ github.event.inputs.name }}"
         echo "TEST=some_value" >> $GITHUB_ENV
-        echo $TEST
+    - run: echo $TEST
