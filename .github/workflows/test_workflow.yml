@@ -3,11 +3,13 @@ name: Test
 on:
   workflow_dispatch:
     inputs:
-      Log_level:
+      name:
+        required: true
+        default: 'World'
       
 jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo Hello
+        echo Hello ${{ github.event.inputs.name }}"
