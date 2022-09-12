@@ -1,6 +1,13 @@
-name: "Test"
+name: Test
 
+on:
+  workflow_dispatch:
+    inputs:
+      Log_level:
+      
 jobs:
+  printInputs:
     runs-on: ubuntu-latest
     steps:
-    - name: Test
+    - run: |
+        echo Hello
